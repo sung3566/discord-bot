@@ -7,6 +7,7 @@
 # ==========================================================
 
 import os
+import random
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -28,6 +29,20 @@ bot = commands.Bot(
     command_prefix="!",
     intents=intents
 )
+
+# ==========================================================
+# 리엘 랜덤 메시지
+# ==========================================================
+RIEL_MESSAGES = [
+    "나 너 좋아해! 엄청! 막 상어만큼 커🦈",
+    "🐱",
+    "리엘이가 행운을 물고왔엉🍀",
+    "리엘이 귀여우니까 바주꼬야???🥹",
+    "리엘이 요깃따!❤️",
+    "리엘이 등장!🥳",
+    "난 냥이다.😚",
+    "리엘이가 세상에서 제일 귀여워❤️",
+]
 
 # ==========================================================
 # 봇 실행 완료
@@ -58,7 +73,7 @@ async def on_ready():
     description="리엘을 불러옵니다."
 )
 async def riel(interaction: discord.Interaction):
-    await interaction.response.send_message("난 냥이다.")
+    await interaction.response.send_message(random.choice(RIEL_MESSAGES))
 
 # ==========================================================
 # 실행
